@@ -204,10 +204,7 @@ public class ClientPanel extends JPanel implements ClientChangeListener {
         // Usage: dateFormatter.format(date) -> String
         SimpleDateFormat dateFormatter = new SimpleDateFormat("HH:mm:ss Z");
 
-        // TODO: Make the server show the timestamp of the received message.
-        // Example output: [15:21:40 -0400] Person: Some message...
-
-        String newText = String.format(" %s: %s%n", msg.getSender(),
+        String newText = String.format("["+dateFormatter.format(msg.getTimestamp()) +"] %s: %s%n", msg.getSender(),
                 msg.getContent());
         this.chatArea.append(newText);
         chatArea.setCaretPosition(chatArea.getDocument().getLength());
